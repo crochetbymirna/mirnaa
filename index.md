@@ -399,10 +399,7 @@
                 <img src="https://i.imgur.com/iBVI9mt.jpeg" alt="Bag 4">
                 <p>"Beautifully crafted crochet bag with amazing attention to detail."</p>
             </div>
-            <div class="product-item">
-                <img src="https://i.imgur.com/YxOrHx7.jpeg" alt="Bag 5">
-                <p>"A vibrant crochet bag that stands out wherever you go!"</p>
-            </div>
+        
         </div>
     </section>
 
