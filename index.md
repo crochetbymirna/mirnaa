@@ -1,4 +1,427 @@
----
-title: Welcome to my blog
----
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crochet by Mirna</title>
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: #ffe6ec; /* Soft pink background */
+            scroll-behavior: smooth;
+        }
 
+        /* Header Section */
+        header {
+            background: url('https://media.istockphoto.com/id/1366552397/vector/knitting-crochet-seamless-pattern-vector-background-with-doodle-illustration-cat-playing.jpg?s=612x612&w=0&k=20&c=VpesbJQRpS2jA316Kff590sG7HoaRCqRXVt8NBWQZe4=') no-repeat center center/cover;
+            height: 100vh;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        /* Menu Icon */
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .menu-icon span {
+            display: block;
+            height: 4px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        /* Sidebar Menu */
+        .side-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 250px;
+            height: 70%;
+            background: #1a1a1a;
+            color: white;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            z-index: 20;
+            transition: left 0.3s ease;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .side-nav.open {
+            left: 0;
+        }
+
+        .side-nav .menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .side-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .side-nav a:hover {
+            color: #ff9aa2;
+        }
+
+        .side-nav .close-btn {
+            cursor: pointer;
+            font-size: 1.5rem;
+            align-self: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .contact {
+            margin-top: auto;
+            text-align: left;
+        }
+
+        .contact .email {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+
+        .contact .email a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            border: 2px solid white;
+            border-radius: 50%;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a img {
+            width: 20px;
+            height: 20px;
+            filter: invert(1);
+        }
+
+        .social-icons a:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .social-icons a:hover img {
+            filter: invert(0);
+        }
+
+        /* Centered Content */
+        .center-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 5;
+        }
+
+        .center-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .center-content .shop-now {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: white;
+            background: linear-gradient(to right, rgba(255, 154, 162, 0.9), rgba(255, 196, 209, 0.9));
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .center-content .shop-now:hover {
+            background: linear-gradient(to right, rgba(255, 111, 142, 0.9), rgba(255, 163, 181, 0.9));
+            transform: translateY(-3px);
+        }
+
+        /* Scroll Down Arrow */
+        .scroll-down {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            z-index: 5;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-down svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+            opacity: 0.8;
+        }
+
+        .scroll-down:hover svg {
+            opacity: 1;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: #fff1f4;
+        }
+
+        .products-section h2 {
+            font-size: 2.5rem;
+            color: #e91e63;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-item {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-item img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-item p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 60px 20px;
+            background: #fff1f4;
+            text-align: center;
+        }
+
+        .why-choose-us h2 {
+            font-size: 2.5rem;
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+
+        .why-choose-us ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .why-choose-us ul li {
+            margin-bottom: 10px;
+        }
+
+        /* About Us Section */
+        .about-section {
+            padding: 60px 20px;
+            background: #ffe6ec;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="menu-icon" onclick="openMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="center-content">
+            <h1>crochet_by_mirna</h1>
+            <a href="bag1.html" class="shop-now">Shop Now</a>
+        </div>
+
+        <!-- Scroll Down Arrow -->
+        <div class="scroll-down" onclick="scrollToProducts()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16.172l4.95-4.95 1.414 1.414-6.364 6.364L5.636 12.636l1.414-1.414z"/></svg>
+        </div>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div class="side-nav" id="sideNav">
+        <span class="close-btn" onclick="closeMenu()">&#10005; Close</span>
+        <div class="menu-links">
+            <a href="bag1.html">Store</a>
+            <a href="#about-us" onclick="scrollToAbout()">About Us</a>
+        </div>
+        <div class="contact">
+            <div class="email">
+                Email: <a href="mailto:crochetbymirna@gmail.com">crochetbymirna@gmail.com</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/crochet_by_mirna?igsh=cDZubG52M3U1dzlz" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                </a>
+                <a href="https://wa.me/96103433911" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <h2>Our Crochet Bags</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="https://i.imgur.com/C2FF4aO.jpeg" alt="Bag 1">
+                <p>"Stylish and durable crochet bag, perfect for everyday use!"</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/sFweqQs.jpeg" alt="Bag 2">
+                <p>"Elegant crochet bag with a unique handmade design."</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/lbBxPGY.jpeg" alt="Bag 3">
+                <p>"Compact and chic crochet bag for special occasions."</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/iBVI9mt.jpeg" alt="Bag 4">
+                <p>"Beautifully crafted crochet bag with amazing attention to detail."</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/YxOrHx7.jpeg" alt="Bag 5">
+                <p>"A vibrant crochet bag that stands out wherever you go!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li>Handcrafted with love and care.</li>
+            <li>One-of-a-kind, unique designs.</li>
+            <li>High-quality materials for durability.</li>
+            <li>Perfect for gifting or personal use.</li>
+        </ul>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="about-section">
+        <h2>About Us</h2>
+        <p>
+            At Crochet by Mirna, we specialize in creating high-quality, handmade crochet bags.
+            Each piece is designed with love, care, and attention to detail. Our mission is to provide
+            beautiful, functional, and unique accessories that bring a personal touch to your style.
+        </p>
+    </section>
+
+    <script>
+        function openMenu() {
+            document.getElementById("sideNav").classList.add("open");
+        }
+
+        function closeMenu() {
+            document.getElementById("sideNav").classList.remove("open");
+        }
+
+        function scrollToProducts() {
+            document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+        }
+
+        function scrollToAbout() {
+            document.getElementById("about-us").scrollIntoView({ behavior: "smooth" });
+        }
+    </script>
+</body>
