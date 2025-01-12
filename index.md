@@ -360,7 +360,7 @@
     </div>
 
     <!-- Products Section -->
-    <section class="products-section" id="products">
+        <section class="products-section" id="products">
         <h2>Our Crochet Bags</h2>
         <div class="product-grid">
             <div class="product-item">
