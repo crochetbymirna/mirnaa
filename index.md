@@ -10,7 +10,7 @@
             height: 100%;
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
-            background: #ffe6ec; /* Soft pink background */
+            background: #ffe6ec;
             scroll-behavior: smooth;
         }
 
@@ -32,7 +32,6 @@
             z-index: 1;
         }
 
-        /* Menu Icon */
         .menu-icon {
             position: absolute;
             top: 20px;
@@ -59,16 +58,17 @@
             top: 0;
             left: -100%;
             width: 250px;
-            height: 70%;
+            height: auto;
+            max-height: 50%;
             background: #1a1a1a;
             color: white;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
             z-index: 20;
             transition: left 0.3s ease;
             padding: 20px;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
         .side-nav.open {
@@ -79,7 +79,6 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-bottom: 20px;
         }
 
         .side-nav a {
@@ -96,24 +95,19 @@
             cursor: pointer;
             font-size: 1.5rem;
             align-self: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
+        /* Contact Section in Sidebar */
         .contact {
             margin-top: auto;
             text-align: left;
         }
 
         .contact .email {
-            font-size: 1rem;
+            font-size: 0.9rem;
             margin-bottom: 10px;
-            word-break: break-word;
-        }
-
-        .contact .email a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
+            word-wrap: break-word;
         }
 
         .contact .social-icons {
@@ -159,7 +153,7 @@
         }
 
         .center-content h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: bold;
             margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.95);
@@ -221,50 +215,46 @@
 
         /* Products Section */
         .products-section {
-            padding: 80px 20px;
+            padding: 60px 15px;
             text-align: center;
             background: #fff1f4;
         }
 
         .products-section h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #e91e63;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
         .product-item {
-            display: flex;
-            gap: 20px;
-            align-items: center;
             background: white;
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            padding: 15px;
+            overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .product-item img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
+            width: 100%;
+            height: auto;
         }
 
         .product-item p {
-            font-size: 1.2rem;
+            padding: 10px;
+            font-size: 1rem;
             color: #555;
         }
 
@@ -292,7 +282,16 @@
         }
 
         .why-choose-us ul li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .why-choose-us ul li::before {
+            content: '✔';
+            color: #e91e63;
+            font-weight: bold;
         }
 
         /* About Us Section */
@@ -315,6 +314,27 @@
             max-width: 800px;
             margin: 0 auto;
         }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .center-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .center-content .shop-now {
+                font-size: 1rem;
+                padding: 10px 30px;
+            }
+
+            .side-nav {
+                max-height: 60%;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -331,9 +351,10 @@
             <a href="bag1.html" class="shop-now">Shop Now</a>
         </div>
 
-        <!-- Scroll Down Arrow -->
         <div class="scroll-down" onclick="scrollToProducts()">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16.172l4.95-4.95 1.414 1.414-6.364 6.364L5.636 12.636l1.414-1.414z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 16.172l4.95-4.95 1.414 1.414-6.364 6.364L5.636 12.636l1.414-1.414z"/>
+            </svg>
         </div>
     </header>
 
@@ -344,12 +365,11 @@
             <a href="bag1.html">Store</a>
             <a href="#about-us" onclick="scrollToAbout()">About Us</a>
         </div>
+		<br>
         <div class="contact">
-            <div class="email">
-                Email: <a href="mailto:crochetbymirna@gmail.com">crochetbymirna@gmail.com</a>
-            </div>
+            <div class="email">Email: <a href="mailto:crochetbymirna@gmail.com">crochetbymirna@gmail.com</a></div>
             <div class="social-icons">
-                <a href="https://www.instagram.com/crochet_by_mirna?igsh=cDZubG52M3U1dzlz" target="_blank">
+                <a href="https://www.instagram.com/crochet_by_mirna" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
                 </a>
                 <a href="https://wa.me/96103433911" target="_blank">
@@ -360,7 +380,7 @@
     </div>
 
     <!-- Products Section -->
-        <section class="products-section" id="products">
+    <section class="products-section" id="products">
         <h2>Our Crochet Bags</h2>
         <div class="product-grid">
             <div class="product-item">
