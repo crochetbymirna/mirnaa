@@ -2,4 +2,4 @@
 layout: default
 ---
 
-<meta http-equiv="refresh" content="0; url=/homepage.html" />
+<meta http-equiv="refresh" content="0; url=/mirnaa/homepage.html" />
