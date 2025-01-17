@@ -20,16 +20,22 @@
             color: inherit;
         }
 
+        .gradient-bottom {
+            height: 50px; /* Adjust height as needed */
+            background: linear-gradient(to top, #f8f8f8, white); /* Bottom fades from the next section's color to transparent */
+        }
+
         /* Header Section */
         header {
-            background: linear-gradient(135deg, rgba(255, 154, 162, 0.9), rgba(255, 196, 209, 0.9));
+            background: rgb(255 181 187 / 90%);
             color: white;
             text-align: center;
             padding: 100px 20px;
             position: relative;
+            width: 100%;
             backdrop-filter: blur(10px);
-            border-bottom: 5px solid rgba(255, 154, 162, 0.6);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* border-bottom: 5px solid rgba(255, 154, 162, 0.6); */
+            box-shadow: -16px 15px 12px 0px rgb(255 181 187 / 90%);
         }
 
         header h1 {
@@ -80,8 +86,8 @@
             position: fixed;
             top: 0;
             left: -100%;
-            width: 250px;
-            height: 60%;
+            width: 260px;
+            height: 95%;
             background: #1a1a1a;
             color: white;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
@@ -157,7 +163,7 @@
         .social-icons a img {
             width: 20px;
             height: 20px;
-            filter: invert(1);
+            /* filter: invert(1); */
         }
 
         .social-icons a:hover {
@@ -165,9 +171,9 @@
             transform: scale(1.1);
         }
 
-        .social-icons a:hover img {
+        /* .social-icons a:hover img {
             filter: invert(0);
-        }
+        } */
 
         /* Product Section */
         .products {
@@ -175,11 +181,13 @@
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
             padding: 40px;
+            padding-bottom: 1px;
             max-width: 1200px;
             margin: 20px auto;
+            margin-bottom: 0px;
             background: #ffffff;
             border-radius: 20px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); */
         }
 
         .product {
@@ -198,7 +206,7 @@
 
         .product img {
             width: 100%;
-            height: 200px;
+            height: 274px;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
@@ -209,6 +217,7 @@
 
         .product .details {
             padding: 15px;
+            margin-top: -4px;
             text-align: center;
             background: #fdfdfd;
             border-top: 1px solid rgba(200, 200, 200, 0.5);
@@ -254,7 +263,7 @@
         /* Pagination Section */
         .pagination {
             text-align: center;
-            margin: 30px 0;
+            margin-bottom: 30px;
         }
 
         .pagination button {
@@ -305,6 +314,7 @@
     <div class="side-nav" id="sideNav">
         <span class="close-btn" onclick="closeMenu()">&#10005; Close</span>
         <div class="menu-links">
+            <a href="homepage.html">Home Page</a>
             <a href="#products">Products</a>
             <a href="homepage.html#about-us">About Us</a>
         </div>
@@ -404,7 +414,32 @@
                 </div>
             </a>
         </div>
+        <div class="product">
+            <a href="products.html?id=23">
+                <img src="https://i.imgur.com/dgNECA4.jpeg" alt="Bag">
+                <div class="details">
+                    <p class="price">$30</p>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="products.html?id=24">
+                <img src="https://i.imgur.com/rBH5RP9.jpg" alt="Bag">
+                <div class="details">
+                    <p class="price">$40</p>
+                </div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="products.html?id=25">
+                <img src="https://i.imgur.com/sgaUfsL.jpg" alt="Bag">
+                <div class="details">
+                    <p class="price">$50</p>
+                </div>
+            </a>
+        </div>
     </section>
+    <div class="gradient-bottom"></div>
 
     <div class="pagination">
         <button onclick="gotoPage('bag1.html')">1</button>
