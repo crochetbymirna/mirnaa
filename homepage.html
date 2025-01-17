@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +12,7 @@
             height: 100%;
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
-            background: #ffe6ec;
+            background: #ffe6ec; /* Soft pink background */
             scroll-behavior: smooth;
         }
 
@@ -32,6 +34,7 @@
             z-index: 1;
         }
 
+        /* Menu Icon */
         .menu-icon {
             position: absolute;
             top: 20px;
@@ -57,18 +60,17 @@
             position: fixed;
             top: 0;
             left: -100%;
-            width: 250px;
-            height: auto;
-            max-height: 50%;
+            width: 260px;
+            height: 95%;
             background: #1a1a1a;
             color: white;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
             z-index: 20;
             transition: left 0.3s ease;
             padding: 20px;
-            overflow-y: auto;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
 
         .side-nav.open {
@@ -79,6 +81,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            margin-bottom: 20px;
         }
 
         .side-nav a {
@@ -95,19 +98,24 @@
             cursor: pointer;
             font-size: 1.5rem;
             align-self: flex-end;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
-        /* Contact Section in Sidebar */
         .contact {
             margin-top: auto;
             text-align: left;
         }
 
         .contact .email {
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-bottom: 10px;
-            word-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .contact .email a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         .contact .social-icons {
@@ -129,7 +137,7 @@
         .social-icons a img {
             width: 20px;
             height: 20px;
-            filter: invert(1);
+            /* filter: invert(1); */
         }
 
         .social-icons a:hover {
@@ -137,9 +145,9 @@
             transform: scale(1.1);
         }
 
-        .social-icons a:hover img {
+        /* .social-icons a:hover img {
             filter: invert(0);
-        }
+        } */
 
         /* Centered Content */
         .center-content {
@@ -153,7 +161,7 @@
         }
 
         .center-content h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: bold;
             margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.95);
@@ -173,10 +181,24 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, background 0.3s ease;
         }
-
+        
         .center-content .shop-now:hover {
             background: linear-gradient(to right, rgba(255, 111, 142, 0.9), rgba(255, 163, 181, 0.9));
             transform: translateY(-3px);
+        }
+
+        .shop-now {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #e91e63;
+            background: white;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
         }
 
         /* Scroll Down Arrow */
@@ -215,56 +237,114 @@
 
         /* Products Section */
         .products-section {
-            padding: 60px 15px;
+            padding: 20px 20px;
             text-align: center;
-            background: #fff1f4;
+            background: rgb(255 209 219 / 90%);
         }
 
         .products-section h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #e91e63;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+        }
+
+        .products-section p {
+            padding: 0px 5px;
         }
 
         .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 100%;
-            margin: 0 auto;
+            display: flex; /* Change from grid to flex for horizontal scrolling */
+            gap: 30px;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            scroll-behavior: smooth; /* Smooth scrolling for a better experience */
+            max-width: 100%; /* Allow the grid to take up full width */
+            padding: 20px 0;
+            margin-left: 45px;
+            margin-right: 45px;
+        }
+
+        .product-grid::-webkit-scrollbar {
+            display: none; /* Hide scrollbar in WebKit-based browsers */
+        }
+
+        .product-grid {
+            -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+            scrollbar-width: none; /* Hide scrollbar in Firefox */
         }
 
         .product-item {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            box-shadow: 0px 0px 20px 6px rgb(255 170 170 / 10%);
+            /* padding: 15px; */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0px 0px 20px 12px rgb(255 170 170 / 10%);
         }
 
         .product-item img {
-            width: 100%;
-            height: auto;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
         .product-item p {
-            padding: 10px;
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: #555;
         }
 
-        /* Why Choose Us Section */
-        .why-choose-us {
-            padding: 60px 20px;
-            background: #fff1f4;
-            text-align: center;
+        /* Scroll buttons */
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            /* transform: translateY(-50%); */
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            transition: background-color 0.3s ease;
         }
 
+        .scroll-button.left {
+            left: 20px;
+        }
+
+        .scroll-button.right {
+            right: 20px;
+        }
+
+        .scroll-button:hover {
+            background-color: #d81b60;
+        }
+
+        .products-section {
+            position: relative; /* For scroll button positioning */
+            padding: 20px 20px;
+        }
+
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 1px 20px;
+            /* background: linear-gradient(to bottom, #fff1f4 0px, #fdadbe 50%, #fff1f4 300px); */
+            background: rgb(255 181 187 / 90%);
+            text-align: center;
+        }
+        
         .why-choose-us h2 {
             font-size: 2.5rem;
             color: #e91e63;
@@ -282,22 +362,23 @@
         }
 
         .why-choose-us ul li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-bottom: 10px;
         }
 
-        .why-choose-us ul li::before {
-            content: '✔';
-            color: #e91e63;
-            font-weight: bold;
+        .gradient-top {
+            height: 50px; /* Adjust height as needed */
+            background: linear-gradient(to bottom, rgb(255 209 219 / 90%), rgb(255 181 187 / 90%)); /* Top fades from the previous section's color to transparent */
+        }
+
+        .gradient-bottom {
+            height: 50px; /* Adjust height as needed */
+            background: linear-gradient(to top, rgb(255 209 219 / 90%), rgb(255 181 187 / 90%)); /* Bottom fades from the next section's color to transparent */
         }
 
         /* About Us Section */
         .about-section {
-            padding: 60px 20px;
-            background: #ffe6ec;
+            padding: 20px 20px;
+            background: rgb(255 181 187 / 90%);
             text-align: center;
         }
 
@@ -314,27 +395,6 @@
             max-width: 800px;
             margin: 0 auto;
         }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .center-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .center-content .shop-now {
-                font-size: 1rem;
-                padding: 10px 30px;
-            }
-
-            .side-nav {
-                max-height: 60%;
-            }
-
-            .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 15px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -347,14 +407,14 @@
         </div>
 
         <div class="center-content">
-            <h1>crochet_by_mirna</h1>
-            <a href="bag1.html" class="shop-now">Shop Now</a>
+            <h1>Crochet By Mirna</h1>
+            <h2>Crafted with passion, stitched with care – our handmade crochet bags bring beauty, durability, and elegance to your everyday life. Embrace the art of timeless design.</h2>
+            <!-- <a href="bag1.html" class="shop-now">Shop Now</a> -->
         </div>
 
+        <!-- Scroll Down Arrow -->
         <div class="scroll-down" onclick="scrollToProducts()">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M12 16.172l4.95-4.95 1.414 1.414-6.364 6.364L5.636 12.636l1.414-1.414z"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16.172l4.95-4.95 1.414 1.414-6.364 6.364L5.636 12.636l1.414-1.414z"/></svg>
         </div>
     </header>
 
@@ -365,11 +425,12 @@
             <a href="bag1.html">Store</a>
             <a href="#about-us" onclick="scrollToAbout()">About Us</a>
         </div>
-		<br>
         <div class="contact">
-            <div class="email">Email: <a href="mailto:crochetbymirna@gmail.com">crochetbymirna@gmail.com</a></div>
+            <div class="email">
+                Email: <a href="mailto:crochetbymirna@gmail.com">crochetbymirna@gmail.com</a>
+            </div>
             <div class="social-icons">
-                <a href="https://www.instagram.com/crochet_by_mirna" target="_blank">
+                <a href="https://www.instagram.com/crochet_by_mirna?igsh=cDZubG52M3U1dzlz" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
                 </a>
                 <a href="https://wa.me/96103433911" target="_blank">
@@ -379,10 +440,35 @@
         </div>
     </div>
 
+    <!-- About Us Section -->
+    <section id="about-us" class="about-section">
+        <h2>About Us</h2>
+        <p>
+            At Crochet by Mirna, we specialize in creating high-quality, handmade crochet bags.
+            Each piece is designed with love, care, and attention to detail. Our mission is to provide
+            beautiful, functional, and unique accessories that bring a personal touch to your style.
+        </p>
+    </section>
+
+    <div class="gradient-bottom"></div>
+
+
     <!-- Products Section -->
     <section class="products-section" id="products">
         <h2>Our Crochet Bags</h2>
+        <!-- Scroll buttons -->
+        <button class="scroll-button left" onclick="scrollLeftContainer()">&#8592;</button>
+        <button class="scroll-button right" onclick="scrollRight()">&#8594;</button>
+        <!-- Scrollable grid -->
         <div class="product-grid">
+            <div class="product-item">
+                <img src="https://i.imgur.com/rBH5RP9.jpg" alt="Bag 6">
+                <p>"Versatile and trendy crochet bag, designed for both comfort and style."</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/sgaUfsL.jpg" alt="Bag 7">
+                <p>"A vibrant crochet bag that stands out wherever you go!"</p>
+            </div>
             <div class="product-item">
                 <img src="https://i.imgur.com/C2FF4aO.jpeg" alt="Bag 1">
                 <p>"Stylish and durable crochet bag, perfect for everyday use!"</p>
@@ -399,9 +485,17 @@
                 <img src="https://i.imgur.com/iBVI9mt.jpeg" alt="Bag 4">
                 <p>"Beautifully crafted crochet bag with amazing attention to detail."</p>
             </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/YxOrHx7.jpeg" alt="Bag 5">
+                <p>"Handcrafted crochet bag with timeless elegance and charm."</p>
+            </div>
         </div>
+        <a href="bag1.html" class="shop-now">Shop Now</a>
     </section>
 
+
+
+    <div class="gradient-top"></div>
     <!-- Why Choose Us Section -->
     <section class="why-choose-us">
         <h2>Why Choose Us?</h2>
@@ -412,18 +506,19 @@
             <li>Perfect for gifting or personal use.</li>
         </ul>
     </section>
-
-    <!-- About Us Section -->
-    <section id="about-us" class="about-section">
-        <h2>About Us</h2>
-        <p>
-            At Crochet by Mirna, we specialize in creating high-quality, handmade crochet bags.
-            Each piece is designed with love, care, and attention to detail. Our mission is to provide
-            beautiful, functional, and unique accessories that bring a personal touch to your style.
-        </p>
-    </section>
+    <!-- <div class="gradient-bottom"></div> -->
 
     <script>
+        const scrollContainer = document.querySelector(".product-grid");
+    
+        function scrollLeftContainer() {
+            scrollContainer.scrollBy({ left: -300, behavior: "smooth" });
+        }
+    
+        function scrollRight() {
+            scrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+        }
+
         function openMenu() {
             document.getElementById("sideNav").classList.add("open");
         }
@@ -441,3 +536,4 @@
         }
     </script>
 </body>
+</html>
